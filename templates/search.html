@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{% if q %}{{ q }} – {% endif %}Peninsula list search{% endblock %}
+{% block content %}
+{% if q %}<p class="meta">{{ results|length }} thread{{ results|length|pluralize }}</p>{% endif %}
+{% for r in results %}
+<div class="result">
+  <h2><a href="/thread/{{ r.id }}/?q={{ q|urlencode }}">{{ r.subject }}</a></h2>
+  <div class="meta">{{ r.started|slice:":10" }} · {{ r.n_messages }} message{{ r.n_messages|pluralize }}</div>
+  <p class="snip">{{ r.snip }}</p>
+</div>
+{% empty %}
+{% if q %}<p>No matches.</p>{% endif %}
+{% endfor %}
+{% endblock %}

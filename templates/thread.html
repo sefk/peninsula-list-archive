@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ t.subject }} – Peninsula list search{% endblock %}
+{% block content %}
+<h2>{{ t.subject }}</h2>
+<p class="meta">{{ t.n_messages }} message{{ t.n_messages|pluralize }} · <a href="{{ t.url }}">original archive</a></p>
+{% for m in msgs %}
+<div class="msg">
+  <div class="meta"><strong>{{ m.author }}</strong> · {{ m.date|slice:":10" }}</div>
+  <pre>{{ m.body }}</pre>
+</div>
+{% endfor %}
+{% endblock %}
