@@ -10,7 +10,7 @@ uv run index.py                 # parse, thread, build data/peninsula.db (SQLite
 uv run search.py "recommendations for fencing companies" -n 10
 ```
 
-Web UI (local, no auth): `uv run web.py runserver`, then open http://127.0.0.1:8000.
+Web UI (no auth, listens on all interfaces, any Host header): `uv run honcho start`, then open http://studio:8000 (or `localhost`). Set `PORT` to change the port.
 
 Re-run `fetch.py` + `index.py` to pick up new mail (the newest quarter is always re-fetched).
 Search is BM25 keyword search with stemming; semantic/embedding search is a possible next step.

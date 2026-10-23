@@ -16,7 +16,7 @@ from search import DB, build_query
 
 settings.configure(
     DEBUG=True,
-    ALLOWED_HOSTS=["localhost", "127.0.0.1"],
+    ALLOWED_HOSTS=["*"],
     ROOT_URLCONF=__name__,
     SECRET_KEY="local-only",
     TEMPLATES=[{
